@@ -2,5 +2,10 @@
   "Index": {
     "title": "Hello world!",
     "app": "แอพพลิเคชั่น"
+  },
+  "NavBar": {
+    "หน้าหลัก": "home",
+    "about": "about",
+    "contact": "contact"
   }
 }

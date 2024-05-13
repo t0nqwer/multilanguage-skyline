@@ -6,16 +6,19 @@ import { useEffect } from "react";
 import { IoMenu } from "react-icons/io5";
 import useNavMenu from "../../../../lib/zustand/navmenu";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface NavBarProps {
   locale: string;
 }
 
-const NavBar = ({ locale }: NavBarProps) => {
+const NavBarHome = ({ locale }: NavBarProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const { floatNav, setSideBarActive } = useNavMenu();
 
+  const t = useTranslations("NavBar");
   useEffect(() => {
     const floatchild = document.getElementById("floatchild");
     const float = document.getElementById("float");
@@ -46,19 +49,18 @@ const NavBar = ({ locale }: NavBarProps) => {
           </div>
           <nav className="flex gap-5">
             {navItems.map((item, index) => (
-              <div
+              <Link
                 key={index}
-                onClick={() => {
-                  router.push(`${item.href}`);
-                }}
+                href={`/${locale}/skyline/${item.href}`}
                 className={` px-5 py-3 rounded-full transition-all cursor-pointer  ${
                   pathname === item.href
                     ? "bg-main text-white"
                     : "text-white hover:bg-main bg-opacity-0 hover:bg-opacity-50  "
                 }`}
               >
-                {item.name}
-              </div>
+                ${item.name}
+                {t(`${item.name}`)}
+              </Link>
             ))}
           </nav>
           <button className="">
@@ -93,4 +95,4 @@ const NavBar = ({ locale }: NavBarProps) => {
   );
 };
 
-export default NavBar;
+export default NavBarHome;

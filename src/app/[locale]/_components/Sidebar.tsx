@@ -1,7 +1,7 @@
 "use client";
-import { navItems } from "@/lib/constanst";
+import { navItems } from "../../../../lib/constanst";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import useNavMenu from "@/lib/zustand/navmenu";
+import useNavMenu from "../../../../lib/zustand/navmenu";
 
 const Sidebar = () => {
   const { setSideBarActive, isSideBarActive } = useNavMenu();

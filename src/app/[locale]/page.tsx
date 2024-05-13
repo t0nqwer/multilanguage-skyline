@@ -1,20 +1,6 @@
-import { useTranslations } from "next-intl";
-import Hero from "./_components/homepage/Hero";
-import AboutBusiness from "./_components/homepage/AboutBusiness";
-import WhyUs from "./_components/homepage/WhyUs";
-import OurProduct from "./_components/homepage/OurProduct";
-import Interest from "./_components/homepage/Interest";
+import { redirect } from "next/navigation";
 
-export default function Index() {
-  const t = useTranslations("Index");
-  return (
-    <>
-      <Hero />
-      <WhyUs />
-      <OurProduct />
-      <Interest />
-      <AboutBusiness />
-      <h1>{t("title")}</h1>;
-    </>
-  );
+// This page only renders when the app is built statically (output: 'export')
+export default function RootPage() {
+  redirect("/en/skyline");
 }

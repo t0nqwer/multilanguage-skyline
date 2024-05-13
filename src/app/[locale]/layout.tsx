@@ -4,7 +4,7 @@ import { getMessages } from "next-intl/server";
 import { IBM_Plex_Sans_Thai } from "next/font/google";
 import "./globals.css";
 import Sidebar from "./_components/Sidebar";
-import NavBar from "./_components/Navbar";
+import NavBarHome from "./_components/NavbarHome";
 
 const IMB = IBM_Plex_Sans_Thai({
   subsets: ["thai"],
@@ -29,7 +29,7 @@ export default async function RootLayout({
       <body className={IMB.className}>
         <NextIntlClientProvider messages={messages}>
           <Sidebar />
-          <NavBar />
+          <NavBarHome locale={locale} />
           {children}
         </NextIntlClientProvider>
       </body>
