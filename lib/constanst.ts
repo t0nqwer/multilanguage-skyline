@@ -1,6 +1,6 @@
 export const navItems = [
-  { name: "หน้าแรก", href: "/" },
-  { name: "สินค้าของเรา", href: "/product" },
-  { name: "เกี่ยวกับเรา", href: "/about" },
-  { name: "ติดต่อเรา", href: "/contact" },
+  { name: "home", href: "/" },
+  { name: "product", href: "/product" },
+  { name: "about", href: "/about" },
+  { name: "contact", href: "/contact" },
 ];

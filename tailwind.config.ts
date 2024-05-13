@@ -18,6 +18,9 @@ const config: Config = {
       fontFamily: {
         imb: "IBM Plex Sans Thai, sans-serif",
       },
+      screens: {
+        "3xl": "1800px",
+      },
       colors: {
         main: "#005CA4",
         mainLight: "#006DC2",

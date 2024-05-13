@@ -4,8 +4,36 @@
     "app": "แอพพลิเคชั่น"
   },
   "NavBar": {
-    "หน้าหลัก": "home",
-    "about": "about",
-    "contact": "contact"
+    "home": "Home",
+    "product": "Product",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "WhyUs": {
+    "headder": "Why choose Skyline Business Plus?",
+    "title1": "Expertise",
+    "detail1": "A professional team with expertise in providing services, with over 20 years of experience.",
+    "title2": "International quality products",
+    "detail2": "Internationally certified quality products.",
+    "title3": "After-sales service.",
+    "detail3": "The products come with a warranty and the best after-sales service, including consultation and problem-solving for customers."
+  },
+  "HomePageProduct": {
+    "detail": "Focus on lighting industry for 10 years, master the core technology of solar energy, and provide customers with high-quality solar energy products."
+  },
+  "HomepageInterest": {
+    "title": "Interested in our products?",
+    "quotation": "Product quotation",
+    "request": "Request a Product quotation"
+  },
+  "HomepageAbout": {
+    "story": "Skyline business plus CO.,LTD was established in April 2017 with the objective of providing quality and reliability. Energy saving innovation Lighting products, electrical equipment and engineering services",
+    "readmore": "Read more"
+  },
+  "Product": {
+    "title": "Our Product"
+  },
+  "About": {
+    "story2": "Skyline business plus CO.,LTD was established in April 2017 with the objective of providing quality and reliability. Energy saving innovation Lighting products, electrical equipment and engineering services Plus we pay serious attention to cost-effectiveness for government agencies and various industrial plants such as automobiles and electrical appliances Semiconductors, Steel, Chemicals and Petrochemicals, Food and Drugs, Distribution Centers and Products including buyers in the construction market with quality products and affordable price Along with a good warranty"
   }
 }

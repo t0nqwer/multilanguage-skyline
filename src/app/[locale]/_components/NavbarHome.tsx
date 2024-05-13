@@ -8,6 +8,10 @@ import useNavMenu from "../../../../lib/zustand/navmenu";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import ThaiFlag from "@/assets/thailand_4855805.png";
+import EngFlag from "@/assets/united-states_197484.png";
+import Image from "next/image";
+import path from "path";
 
 interface NavBarProps {
   locale: string;
@@ -34,6 +38,13 @@ const NavBarHome = ({ locale }: NavBarProps) => {
     }
   }, [floatNav]);
 
+  const Changelang = () => {
+    const path = pathname.split("/");
+    const newPath = path.filter((item, i) => item !== "" && i !== 1).join("/");
+    console.log(newPath);
+    router.push(`/${locale === "th" ? "en" : "th"}/${newPath}`);
+  };
+
   return (
     <>
       <div
@@ -58,20 +69,32 @@ const NavBarHome = ({ locale }: NavBarProps) => {
                     : "text-white hover:bg-main bg-opacity-0 hover:bg-opacity-50  "
                 }`}
               >
-                ${item.name}
                 {t(`${item.name}`)}
               </Link>
             ))}
           </nav>
-          <button className="">
-            <a
-              href="tel:089-899-2495"
-              className="flex items-center justify-center px-8 py-3 space-x-2 text-white rounded-full bg-second"
+          <div className="flex gap-3 ">
+            <button className="">
+              <a
+                href="tel:089-899-2495"
+                className="flex items-center justify-center p-2 space-x-2 text-white rounded-full bg-second"
+              >
+                <BsTelephoneFill className="text-xl" />
+              </a>
+            </button>
+            <button
+              className="flex items-center justify-center p-2 space-x-2 text-white rounded-full bg-second"
+              onClick={Changelang}
             >
-              <BsTelephoneFill className="" />
-              <span>089-899-2495</span>
-            </a>
-          </button>
+              <Image
+                src={locale === "th" ? ThaiFlag : EngFlag}
+                alt="multilanguage"
+                width={50}
+                height={50}
+                className="w-5 h-5 "
+              />
+            </button>
+          </div>
         </div>
       </div>
       <div id="float" className="fixed z-50 w-full mt-3 mainpadding md:hidden ">

@@ -1,16 +1,14 @@
-import React from "react";
+import { useTranslations } from "next-intl";
 
 const OurProduct = () => {
+  const t = useTranslations("HomePageProduct");
   return (
     <div className="relative flex items-center w-full py-24 mainpadding">
       <div className="w-full ">
         <h1 className="heddertext">
           Our<span className=" text-second"> Products</span>
         </h1>
-        <p>
-          Focus on lighting industry for 10 years, master the core technology of
-          solar energy
-        </p>
+        <p>{t(`detail`)}</p>
         <div className="flex w-full gap-10 mt-10 max-sm:flex-wrap">
           <div className="relative w-full h-full overflow-hidden rounded-xl ">
             <img
