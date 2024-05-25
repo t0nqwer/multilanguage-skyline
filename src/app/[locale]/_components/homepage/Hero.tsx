@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const slides = ["/hero/01.png", "/hero/02.png", "/hero/03.png"];
+const slides = ["/hero/1.jpg", "/hero/2.jpg", "/hero/3.jpg"];
 
 const Hero = () => {
   let [current, setCurrent] = useState(0);
