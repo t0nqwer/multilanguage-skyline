@@ -26,23 +26,30 @@ const NavBarHome = ({ locale }: NavBarProps) => {
   useEffect(() => {
     const floatchild = document.getElementById("floatchild");
     const float = document.getElementById("float");
+    const floatchild2 = document.getElementById("floatchild2");
+
     if (floatNav) {
       float?.classList.remove("-z-10");
       float?.classList.add("z-50");
       floatchild?.classList.remove("opacity-0");
       floatchild?.classList.add("opacity-100");
+      floatchild2?.classList.remove("opacity-0");
+      floatchild2?.classList.add("opacity-100");
     }
     if (!floatNav) {
       floatchild?.classList.remove("opacity-100");
       floatchild?.classList.add("opacity-0");
+      floatchild2?.classList.remove("opacity-100");
+      floatchild2?.classList.add("opacity-0");
     }
   }, [floatNav]);
 
   const Changelang = () => {
     const path = pathname.split("/");
     const newPath = path.filter((item, i) => item !== "" && i !== 1).join("/");
-    console.log(newPath);
-    router.push(`/${locale === "th" ? "en" : "th"}/${newPath}`);
+    router.push(`/${locale === "th" ? "en" : "th"}/${newPath}`, {
+      scroll: false,
+    });
   };
 
   return (
@@ -60,9 +67,13 @@ const NavBarHome = ({ locale }: NavBarProps) => {
           </div>
           <nav className="flex gap-5">
             {navItems.map((item, index) => (
-              <Link
+              <button
                 key={index}
-                href={`/${locale}/skyline/${item.href}`}
+                onClick={() => {
+                  router.push(`/${locale}/skyline/${item.href}`, {
+                    scroll: false,
+                  });
+                }}
                 className={` px-5 py-3 rounded-full transition-all cursor-pointer  ${
                   pathname === item.href
                     ? "bg-main text-white"
@@ -70,7 +81,7 @@ const NavBarHome = ({ locale }: NavBarProps) => {
                 }`}
               >
                 {t(`${item.name}`)}
-              </Link>
+              </button>
             ))}
           </nav>
           <div className="flex gap-3 ">
@@ -97,21 +108,35 @@ const NavBarHome = ({ locale }: NavBarProps) => {
           </div>
         </div>
       </div>
-      <div id="float" className="fixed z-50 w-full mt-3 mainpadding md:hidden ">
+      <div id="float" className="fixed z-50 w-full mt-3 px-3 md:hidden ">
         <div
-          id="floatchild"
+          id="floatchild2"
           className="flex items-center justify-between w-full p-3 transition-all duration-300 bg-opacity-50 rounded-full bg-dark backdrop-blur-md "
         >
-          <div id="logo" className="h-10 ">
+          <div id="logo" className="h-6 ">
             <img src="/logo.png" alt="" className="object-contain h-full " />
           </div>
 
-          <button
-            className="p-3 text-xl rounded-full bg-second"
-            onClick={() => setSideBarActive(true)}
-          >
-            <IoMenu />
-          </button>
+          <div className="flex">
+            <button
+              className="flex items-center justify-center  w-7 h-7 text-white rounded-full bg-second"
+              onClick={Changelang}
+            >
+              <Image
+                src={locale === "th" ? ThaiFlag : EngFlag}
+                alt="multilanguage"
+                width={50}
+                height={50}
+                className="w-5 h-5 "
+              />
+            </button>
+            <button
+              className="p-1 text-xl rounded-full bg-second ml-4"
+              onClick={() => setSideBarActive(true)}
+            >
+              <IoMenu />
+            </button>
+          </div>
         </div>
       </div>
     </>

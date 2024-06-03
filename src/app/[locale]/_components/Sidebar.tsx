@@ -2,9 +2,18 @@
 import { navItems } from "../../../../lib/constanst";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import useNavMenu from "../../../../lib/zustand/navmenu";
+import { useTranslations } from "next-intl";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-const Sidebar = () => {
-  const { setSideBarActive, isSideBarActive } = useNavMenu();
+interface NavBarProps {
+  locale: string;
+}
+const Sidebar = ({ locale }: NavBarProps) => {
+  const { floatNav, setSideBarActive, isSideBarActive } = useNavMenu();
+  const router = useRouter();
+
+  const t = useTranslations("NavBar");
 
   if (!isSideBarActive) return null;
   return (
@@ -20,15 +29,18 @@ const Sidebar = () => {
       </div>
       <nav className="flex flex-col gap-5 text-center">
         {navItems.map((item, index) => (
-          <a
+          <button
             key={index}
-            href={item.href}
+            onClick={() => {
+              router.push(`/${locale}/skyline/${item.href}`, { scroll: true });
+              setSideBarActive(false);
+            }}
             className={` px-5 py-3 text-xl rounded-full transition-all 
                 text-white hover:bg-main bg-opacity-0 hover:bg-opacity-50  
             `}
           >
             {item.name}
-          </a>
+          </button>
         ))}
       </nav>
     </div>

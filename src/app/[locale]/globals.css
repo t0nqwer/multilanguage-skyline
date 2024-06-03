@@ -19,14 +19,17 @@ body {
     height: 100dvh;
     width: 100dvw;
   }
+  .maxWidth {
+    width: 100dvw;
+  }
   .verticalLine {
     border-left: solid #1e1e1e;
   }
   .mainpadding {
-    @apply px-8 xl:px-40 lg:px-20 md:px-16;
+    @apply px-5 xl:px-40 lg:px-16 md:px-12 max-[400px]:px-2;
   }
   .heddertext {
-    @apply text-4xl font-semibold md:text-3xl xl:text-5xl lg:text-4xl;
+    @apply text-2xl font-semibold md:text-3xl xl:text-5xl lg:text-4xl;
   }
   .text-balance {
     text-wrap: balance;

@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import useScreenSize from "@/lib/hook/useScreenSize";
 
 const slides = ["/hero/1.jpg", "/hero/2.jpg", "/hero/3.jpg"];
 
 const Hero = () => {
+  const screenSize = useScreenSize();
   let [current, setCurrent] = useState(0);
+  const [height, setHeight] = useState(0);
   let previousSlide = () => {
     if (current === 0) setCurrent(slides.length - 1);
     else setCurrent(current - 1);
@@ -21,8 +24,18 @@ const Hero = () => {
     }, 8000);
     return () => clearInterval(interval);
   }, [current]);
+  useEffect(() => {
+    const fullWidthElement = document.querySelector(".fullWidth");
+    if (fullWidthElement) {
+      const width = fullWidthElement.clientWidth / 16;
+      setHeight(width * 9);
+    }
+  }, [screenSize.width]);
   return (
-    <div className="relative overflow-hidden fullWidth">
+    <div
+      className={`relative overflow-hidden maxWidth `}
+      style={{ height: `${height}px` }}
+    >
       <div
         className={`flex transition h-full ease-out duration-500 `}
         style={{
@@ -34,7 +47,7 @@ const Hero = () => {
             <img
               src={slide}
               alt=""
-              className="object-cover w-full h-full shrink-0"
+              className="object-contain w-full h-full  object-top shrink-0"
             />
           </div>
         ))}

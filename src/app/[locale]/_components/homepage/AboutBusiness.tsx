@@ -27,6 +27,7 @@ const AboutBusiness = ({ locale }: NavBarProps) => {
           </p>
           <button className="mt-10 ">
             <Link
+              scroll={false}
               href={`/${locale}/skyline/about`}
               className="px-8 py-3 mt-10 text-white transition-all bg-opacity-50 rounded-full bg-second backdrop-blur-md hover:bg-opacity-90 active:scale-110"
             >

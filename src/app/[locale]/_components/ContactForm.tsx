@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
   name: z.string().min(2, "กรุณากรอกชื่อ-นามสกุล"),
@@ -22,6 +23,8 @@ const formSchema = z.object({
   message: z.string(),
 });
 const ContactForm = () => {
+  const t = useTranslations("contactForm");
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,7 +39,7 @@ const ContactForm = () => {
     console.log(values);
   }
   return (
-    <div className="w-1/2 px-10 text-left max-sm:w-full shrink-0">
+    <div className="w-1/2 px-10 max-sm:px-3 text-left max-sm:w-full shrink-0">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
           <FormField
@@ -44,9 +47,9 @@ const ContactForm = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>ชื่อ-นามสกุล</FormLabel>
+                <FormLabel> {t("name")}</FormLabel>
                 <FormControl>
-                  <Input placeholder="ชื่อสำหรับติดต่อกลับ" {...field} />
+                  <Input placeholder={t("name")} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -58,9 +61,9 @@ const ContactForm = () => {
               name="phone"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>เบอร์โทรติดต่อ</FormLabel>
+                  <FormLabel>{t("phone")}</FormLabel>
                   <FormControl>
-                    <Input placeholder="เบอร์โทรสำหรับติดต่อกลับ" {...field} />
+                    <Input placeholder={t("phone")} {...field} />
                   </FormControl>
                   <FormMessage className="text-red-400" />
                 </FormItem>
@@ -71,9 +74,9 @@ const ContactForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>อีเมล</FormLabel>
+                  <FormLabel>{t("email")}</FormLabel>
                   <FormControl>
-                    <Input placeholder="อีเมล์สำหรับติดต่อกลับ" {...field} />
+                    <Input placeholder={t("email")} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -85,9 +88,9 @@ const ContactForm = () => {
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>เรื่องทีต้องการติดต่อ :</FormLabel>
+                <FormLabel>{t("inquiry")}</FormLabel>
                 <FormControl>
-                  <Input placeholder="เรื่องทีต้องการติดต่อ" {...field} />
+                  <Input placeholder={t("inquiry")} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -98,9 +101,9 @@ const ContactForm = () => {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>ข้อความ :</FormLabel>
+                <FormLabel>{t("message")}</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="รายละเอียด" {...field} />
+                  <Textarea placeholder={t("message")} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -108,7 +111,7 @@ const ContactForm = () => {
           />
           <Button
             className="text-white rounded-full bg-main hover:bg-mainLight"
-            variant="destructive"
+            variant="main"
             type="submit"
           >
             Submit

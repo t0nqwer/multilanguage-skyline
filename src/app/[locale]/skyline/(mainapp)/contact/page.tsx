@@ -2,20 +2,22 @@
 import { FaLocationDot, FaLine } from "react-icons/fa6";
 import { BsTelephoneFill } from "react-icons/bs";
 import ContactForm from "@/app/[locale]/_components/ContactForm";
+import { useTranslations } from "next-intl";
 
 const Contact = () => {
+  const t = useTranslations("contact");
   return (
     <div className="pb-20 mainpadding">
       <div className="mt-20 text-center ">
-        <h3 className="text-xl ">CONTACT US</h3>
-        <h1 className="mt-5 text-5xl font-semibold ">ติดต่อเรา</h1>
-        <p className="mt-5 text-3xl">
-          บริษัท สกายไลน์ บิสสิเนสพลัส จำกัด (สำนักงานใหญ่)
+        <h3 className="text-xl max-sm:text-lg ">CONTACT US</h3>
+        <h1 className="mt-5 text-5xl font-semibold  max-sm:text-4xl max-sm:mt-2">
+          ติดต่อเรา
+        </h1>
+        <p className="mt-5 text-3xl max-sm:text-2xl">{t(`campanyName`)}</p>
+        <p className="mt-3 text-2xl max-sm:text-xl max-sm:mt-2">
+          {t(`companyAddress`)}
         </p>
-        <p className="mt-3 text-2xl">
-          1328 ถนนเจริญกรุง แขวงบางรัก เขตบางรัก กทม 10500
-        </p>
-        <div className="flex flex-row items-center justify-center py-8 space-x-5 text-dark max-sm:flex-col">
+        <div className="flex flex-row items-center justify-center py-8 space-x-5 text-dark max-sm:flex-col  max-sm:space-x-0 max-sm:space-y-2">
           <button
             className="flex items-center justify-center space-x-3 text-center "
             onClick={() => {
@@ -23,7 +25,7 @@ const Contact = () => {
             }}
           >
             <BsTelephoneFill />
-            <span>โทร : 089-899-2495</span>
+            <span>{t(`tel`)} : 089-899-2495</span>
           </button>
           <button
             className="flex items-center justify-center space-x-3 text-center "
@@ -34,14 +36,14 @@ const Contact = () => {
             <FaLine />
             <span>Line Id : mrton12</span>
           </button>
-          <div className="flex items-center text-left ">
+          {/* <div className="flex items-center text-left ">
             <FaLocationDot className="mr-3 text-xl" />
             <p className="">
-              บริษัท สกายไลน์ บิสสิเนสพลัส จำกัด (สำนักงานใหญ่)
+              {t(`campanyName`)}
               <br />
-              1328 ถนนเจริญกรุง แขวงบางรัก เขตบางรัก กทม 10500
+              {t(`companyAddress`)}
             </p>
-          </div>
+          </div> */}
         </div>
         <div className="flex w-full mt-10 space-y-10 max-sm:flex-col ">
           <ContactForm />
@@ -53,6 +55,7 @@ const Contact = () => {
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-96 max-sm:h-96 max-sm:w-full"
           ></iframe>
         </div>
       </div>

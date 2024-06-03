@@ -5,6 +5,7 @@ import { IBM_Plex_Sans_Thai } from "next/font/google";
 import "./globals.css";
 import Sidebar from "./_components/Sidebar";
 import NavBarHome from "./_components/NavbarHome";
+import Modal from "./_components/Modal";
 
 const IMB = IBM_Plex_Sans_Thai({
   subsets: ["thai"],
@@ -28,7 +29,8 @@ export default async function RootLayout({
     <html lang="en">
       <body className={IMB.className}>
         <NextIntlClientProvider messages={messages}>
-          <Sidebar />
+          <Modal />
+          <Sidebar locale={locale} />
           <NavBarHome locale={locale} />
           {children}
         </NextIntlClientProvider>

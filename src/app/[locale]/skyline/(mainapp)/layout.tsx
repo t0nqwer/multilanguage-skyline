@@ -11,7 +11,6 @@ export default function Layout({
 }>) {
   return (
     <div id="maindiv" className="">
-      <div className="w-full h-24 bg-main sm:hidden "></div>
       <FixNavbar locale={locale} />
       {children}
     </div>

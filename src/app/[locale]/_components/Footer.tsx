@@ -3,12 +3,18 @@ import { navItems } from "../../../../lib/constanst";
 import { FaLocationDot, FaLine } from "react-icons/fa6";
 import { BsTelephoneFill } from "react-icons/bs";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 interface NavBarProps {
   locale: string;
 }
 
 const Pagefooter = ({ locale }: NavBarProps) => {
+  const router = useRouter();
+  const t = useTranslations("NavBar");
+  const tcontact = useTranslations("contact");
+
   return (
     <div className="w-full py-10 bg-main mainpadding">
       <div className="w-full h-12 ">
@@ -21,13 +27,15 @@ const Pagefooter = ({ locale }: NavBarProps) => {
 
       <div className="flex justify-center gap-5 mt-10 ">
         {navItems.map((item, index) => (
-          <Link
+          <button
             key={index}
-            href={`/${locale}/skyline/${item.href}`}
+            onClick={() => {
+              router.push(`/${locale}/skyline/${item.href}`, { scroll: false });
+            }}
             className="text-white hover:text-second"
           >
-            {item.name}
-          </Link>
+            {t(`${item.name}`)}
+          </button>
         ))}
       </div>
       <hr className="mt-5 " />
@@ -39,7 +47,7 @@ const Pagefooter = ({ locale }: NavBarProps) => {
           }}
         >
           <BsTelephoneFill />
-          <span>โทร : 089-899-2495</span>
+          <span> {tcontact(`tel`)} : 089-899-2495</span>
         </button>
         <button
           className="flex items-center justify-center space-x-3 text-center text-white"
@@ -53,10 +61,10 @@ const Pagefooter = ({ locale }: NavBarProps) => {
         <div className="flex items-center">
           <FaLocationDot className="block mr-3 text-xl text-white max-sm:hidden" />
           <p className="text-white max-sm:text-center ">
-            บริษัท สกายไลน์ บิสสิเนสพลัส จำกัด{" "}
-            <br className="hidden max-sm:block" /> (สำนักงานใหญ่)
+            {tcontact(`campanyName`)}
+            <br className="hidden max-sm:block" />
             <br />
-            1328 ถนนเจริญกรุง แขวงบางรัก เขตบางรัก กทม 10500
+            {tcontact(`companyAddress`)}
           </p>
         </div>
       </div>
@@ -80,10 +88,10 @@ const Pagefooter = ({ locale }: NavBarProps) => {
             <BsTelephoneFill className="text-2xl text-dark" />
           </button>
         </div>
-        <p className="text-center text-white ">
+        <p className="text-center text-white max-sm:text-xs ">
           Copyright © 2024 www.skylinebusinessplus.com | All Rights Reserved.
         </p>
-        <div className="text-white">
+        <div className="text-white max-sm:text-xs  max-sm:mt-3">
           <span> Privacy Policy</span>
           <span className="mx-3 ">|</span>
           <span>Terms of Service</span>

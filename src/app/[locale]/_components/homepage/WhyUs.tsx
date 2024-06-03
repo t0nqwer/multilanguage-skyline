@@ -6,7 +6,7 @@ const WhyUs = () => {
   return (
     <div className="relative flex items-center w-full py-16 xl:py-32 lg:py-20 mainpadding bg-main">
       <div className="w-full">
-        <h1 className="text-3xl font-light text-center text-white opacity-80">
+        <h1 className="text-3xl max-sm:text-2xl font-light text-center text-white opacity-80">
           WHY US?
         </h1>
         <h1 className="mt-5 text-center text-white heddertext">

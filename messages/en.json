@@ -35,5 +35,17 @@
   },
   "About": {
     "story2": "Skyline business plus CO.,LTD was established in April 2017 with the objective of providing quality and reliability. Energy saving innovation Lighting products, electrical equipment and engineering services Plus we pay serious attention to cost-effectiveness for government agencies and various industrial plants such as automobiles and electrical appliances Semiconductors, Steel, Chemicals and Petrochemicals, Food and Drugs, Distribution Centers and Products including buyers in the construction market with quality products and affordable price Along with a good warranty"
+  },
+  "contact": {
+    "campanyName": "Skyline Business Plus Co., Ltd.",
+    "companyAddress": "1328 Charoenkrung road Khwaeng BangRuk BangRuk Bangkok 10500",
+    "tel": "Tel"
+  },
+  "contactForm": {
+    "name": "Firstname - Lastname",
+    "phone": "phone number",
+    "email": "email address",
+    "inquiry": "inquiry heading",
+    "message": "message"
   }
 }
