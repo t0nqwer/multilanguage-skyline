@@ -27,15 +27,15 @@ const Modal = () => {
         <div className=" w-full h-full relative flex items-center justify-center">
           {product?.id !== "bj1" ? (
             <div className=" relative w-fit h-fit">
-              <div
-                className=" absolute top-2 right-2 text-main select-none text-xl"
+              <button
+                className=" absolute top-2 right-2 text-main select-none text-2xl"
                 onClick={() => {
                   setModalActive(false);
                   setModalId("");
                 }}
               >
                 <CgCloseO />
-              </div>
+              </button>
               <>
                 {product && (
                   <Image
@@ -49,15 +49,15 @@ const Modal = () => {
             </div>
           ) : (
             <div className=" relative w-fit h-full">
-              <div
-                className=" absolute top-2 right-2 text-main select-none text-xl"
+              <button
+                className=" absolute top-4 right-4 text-main select-none text-xl"
                 onClick={() => {
                   setModalActive(false);
                   setModalId("");
                 }}
               >
                 <CgCloseO />
-              </div>
+              </button>
               <div className=" w-full max-w-[500px] h-full overflow-y-auto bg-white p-8">
                 <div className="">
                   <p>
