@@ -2,8 +2,13 @@
 import { navItems } from "../../../../lib/constanst";
 import { FaLocationDot, FaLine } from "react-icons/fa6";
 import { BsTelephoneFill } from "react-icons/bs";
+import Link from "next/link";
 
-const Pagefooter = () => {
+interface NavBarProps {
+  locale: string;
+}
+
+const Pagefooter = ({ locale }: NavBarProps) => {
   return (
     <div className="w-full py-10 bg-main mainpadding">
       <div className="w-full h-12 ">
@@ -16,13 +21,13 @@ const Pagefooter = () => {
 
       <div className="flex justify-center gap-5 mt-10 ">
         {navItems.map((item, index) => (
-          <a
+          <Link
             key={index}
-            href={item.href}
+            href={`/${locale}/skyline/${item.href}`}
             className="text-white hover:text-second"
           >
             {item.name}
-          </a>
+          </Link>
         ))}
       </div>
       <hr className="mt-5 " />

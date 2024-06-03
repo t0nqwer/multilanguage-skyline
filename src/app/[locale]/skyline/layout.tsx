@@ -20,12 +20,11 @@ export default function Layout({
       setFloatNav(false);
     }
   };
-  console.log(locale);
 
   return (
     <div id="maindiv" className="overflow-x-hidden fullWidth" onScroll={scroll}>
       {children}
-      <Footer />
+      <Footer locale={locale} />
     </div>
   );
 }
