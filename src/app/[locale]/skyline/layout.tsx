@@ -17,7 +17,7 @@ export default function Layout({
     if (maindiv && maindiv.scrollTop > 10) {
       setFloatNav(true);
     } else {
-      setFloatNav(false);
+      setFloatNav(true);
     }
   };
 
