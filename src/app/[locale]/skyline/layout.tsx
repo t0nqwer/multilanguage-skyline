@@ -2,6 +2,8 @@
 
 import Footer from "@/app/[locale]/_components/Footer";
 import useNavMenu from "../../../../lib/zustand/navmenu";
+import FixNavbar from "../_components/FixNavbar";
+import { useEffect } from "react";
 
 export default function Layout({
   children,
@@ -17,12 +19,21 @@ export default function Layout({
     if (maindiv && maindiv.scrollTop > 10) {
       setFloatNav(true);
     } else {
-      setFloatNav(true);
+      setFloatNav(false);
     }
   };
+  useEffect(() => {
+    const maindiv = document.getElementById("maindiv");
+    if (maindiv && maindiv.scrollTop > 10) {
+      setFloatNav(true);
+    } else {
+      setFloatNav(false);
+    }
+  }, [setFloatNav]);
 
   return (
     <div id="maindiv" className="overflow-x-hidden fullWidth" onScroll={scroll}>
+      <FixNavbar locale={locale} />
       {children}
       <Footer locale={locale} />
     </div>

@@ -10,7 +10,7 @@ interface NavMenu {
 const useNavMenu = create<NavMenu>((set) => ({
   isSideBarActive: false,
   setSideBarActive: (isSideBarActive) => set({ isSideBarActive }),
-  floatNav: true,
+  floatNav: false,
   setFloatNav: (floatNav) => set({ floatNav }),
 }));
 

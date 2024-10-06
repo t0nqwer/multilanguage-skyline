@@ -36,14 +36,14 @@ const Hero = () => {
       const width = fullWidthElement.clientWidth / 16;
       setHeight(width * 9);
     }
-  }, [screenSize.width]);
+  }, [screenSize.width, screenSize.height]);
   return (
     <div
-      className={`relative overflow-hidden maxWidth `}
-      style={{ height: `${height}px` }}
+      className={`relative overflow-hidden maxWidth h-screen`}
+      // style={{ height: `${height}px` }}
     >
       <div
-        className={`flex transition h-full ease-out duration-500 `}
+        className={`flex transition h-full ease-out duration-500  `}
         style={{
           transform: `translateX(-${current * 100}%)`,
         }}
@@ -53,7 +53,7 @@ const Hero = () => {
             <img
               src={slide}
               alt=""
-              className="object-contain w-full h-full  object-top shrink-0"
+              className="2xl:object-cover w-full h-full  object-center shrink-0"
             />
           </div>
         ))}

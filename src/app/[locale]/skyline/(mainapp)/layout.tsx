@@ -11,7 +11,7 @@ export default function Layout({
 }>) {
   return (
     <div id="maindiv" className="">
-      <FixNavbar locale={locale} />
+      {/* <FixNavbar locale={locale} /> */}
       {children}
     </div>
   );
