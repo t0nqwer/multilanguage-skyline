@@ -39,8 +39,8 @@ const Hero = () => {
   }, [screenSize.width, screenSize.height]);
   return (
     <div
-      className={`relative overflow-hidden maxWidth h-screen`}
-      // style={{ height: `${height}px` }}
+      className={`relative overflow-hidden w-full  h-full aspect-video`}
+      style={{ height: `${height}px` }}
     >
       <div
         className={`flex transition h-full ease-out duration-500  `}
