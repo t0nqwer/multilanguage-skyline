@@ -58,7 +58,7 @@ const Hero = () => {
           </div>
         ))}
       </div>
-      <div className="absolute top-0 flex items-center justify-between w-full h-full px-10 text-3xl text-white">
+      <div className="absolute top-0 flex items-center justify-between w-full h-full px-10 max-md:px-2 text-3xl text-white">
         <button onClick={previousSlide}>{`<`}</button>
         <button onClick={nextSlide}>{`>`}</button>
       </div>
